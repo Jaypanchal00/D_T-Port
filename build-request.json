@@ -1,0 +1,336 @@
+{
+  "kind": "build_request",
+  "title": "Dark-theme animated frontend developer portfolio (React + Tailwind + Framer Motion)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement a single-page personal portfolio website in a dark theme with neon accents and a minimal futuristic look: dark background (#0f0f0f / #0b0b0b), cyan/purple/electric-blue accents, glassmorphism cards, soft glow effects, and smooth hover interactions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create a modern, fully animated personal portfolio website in DARK THEME for a Frontend Web Developer.\n\nDesign Style:\n- Dark background (#0f0f0f / #0b0b0b)\n- Neon accent colors (cyan / purple / electric blue)\n- Glassmorphism cards\n- Smooth hover effects\n- Soft glow effects\n- Minimal but futuristic UI"
+        ]
+      },
+      "acceptanceCriteria": [
+        "App uses a consistent dark palette with the specified background values (or extremely close equivalents) across all sections.",
+        "Cards/containers use a glassmorphism style (blur + translucent fill + subtle border) that remains readable on dark backgrounds.",
+        "Interactive elements (buttons, links, cards) have smooth hover states and subtle glow accents without harming contrast/readability."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Set up Tailwind CSS configuration and global styles to support the dark theme, neon/glow tokens, glassmorphism utilities, custom dark-themed scrollbar, and a subtle noise/grain overlay texture.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Output:\n- Tailwind config for dark theme",
+          "Extra Effects:\n- Subtle noise/grain texture\n- Custom scrollbar (dark themed)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Tailwind is configured with reusable theme tokens/utilities for dark surfaces, neon accents, glow shadows, and glassmorphism styling.",
+        "A custom scrollbar style is applied globally and matches the dark theme.",
+        "A subtle grain/noise effect is visible (and not overpowering) across the site."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement a global animation system using Framer Motion, including: smooth page/section transitions, reusable motion variants, scroll-based reveal animations (fade/slide/scale), and a page loader animation shown on initial load.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Animations:\n- Smooth page transitions\n- Scroll-based animations (fade, slide, scale)\n\nExtra Effects:\n- Page loader animation\n\nOutput:\n- Framer Motion animation examples"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Motion variants are centralized and reused across sections (not duplicated ad hoc everywhere).",
+        "Scroll-based reveal animations trigger once per section/element and feel smooth on mobile and desktop.",
+        "A loader animation is displayed briefly on first load and then cleanly transitions to the hero section."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create a responsive navbar that supports smooth scrolling to sections and hides/shows based on scroll direction (hide on scroll down, show on scroll up).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Animations:\n- Navbar hide/show on scroll",
+          "Performance & UX:\n- Fully responsive (mobile, tablet, desktop)\n- Smooth scrolling"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navbar contains links to all required sections and scrolls smoothly to anchors/sections.",
+        "On downward scroll the navbar animates out; on upward scroll it animates back in.",
+        "Navbar is usable and visually correct on mobile/tablet/desktop (including a mobile-friendly navigation pattern)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Build the Hero section with: large animated name text, role text with typing animation, and two prominent call-to-action buttons labeled “Hire Me” and “View Projects”, including cinematic on-load text animation.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "1. Hero Section\n   - Big animated name text\n   - Role text with typing animation\n   - Call-to-action buttons (Hire Me / View Projects)\n\nAnimations:\n- Hero section text animation on load"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero name text animates in on load (e.g., staggered reveal/slide/blur) with a premium feel.",
+        "Role text uses a visible typing effect (type + delete or type only) and loops or completes gracefully.",
+        "CTA buttons are animated (hover/tap) and navigate to Contact/Projects sections respectively (or open the relevant section)."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement magnetic button interactions for primary CTAs and key interactive elements (subtle attraction to cursor), ensuring accessibility and mobile-safe behavior (disabled or adapted for touch).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Animations:\n- Magnetic buttons"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On desktop, magnetic effect is noticeable but subtle and does not cause layout shift.",
+        "On touch devices, the effect does not interfere with tapping (either disabled or simplified).",
+        "Keyboard focus states remain clear and usable on all buttons/links."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Add a cursor follower animation that complements the neon/glow theme, with appropriate fallbacks on touch devices and without degrading performance.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Animations:\n- Cursor follower animation"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A cursor follower element smoothly trails the pointer and visually matches the site theme.",
+        "Follower is hidden/disabled on touch devices.",
+        "No noticeable lag during normal pointer movement on typical hardware."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Build the About section with an animated profile image, scroll-triggered text reveal, and a set of tech stack icons with hover animations and glow effects.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "2. About Section\n   - Animated profile image\n   - Smooth text reveal on scroll\n   - Tech stack icons with hover animations"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Profile image has a tasteful animation (float/parallax/scale) and fits the glass/neon aesthetic.",
+        "About text reveals on scroll with a smooth, readable motion (not too fast).",
+        "Tech icons animate on hover (e.g., lift/rotate/glow) and remain legible on dark background."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Build the Skills section featuring animated progress indicators (progress bars and/or circular loaders) and skill icons with glow hover effects.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "3. Skills Section\n   - Animated progress bars or circular loaders\n   - Icons with glow hover effects"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Skills animate into view when scrolled into viewport.",
+        "Progress indicators animate from 0 to their target values smoothly.",
+        "Skill icons have consistent styling and glow hover effects without visual noise."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Build the Projects section with fully animated project cards, hover tilt interaction, hover overlay showing “Live Demo” and “GitHub” links, and an animated filter control for categories (React / JS / HTML).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "4. Projects Section\n   - Fully animated project cards\n   - Hover overlay with live demo & GitHub links\n   - Filter animation (React / JS / HTML)\n\nAnimations:\n- Hover tilt cards"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Projects are displayed as cards with glassmorphism styling and animated entrance/reveal.",
+        "Hovering a card shows an overlay with clearly clickable “Live Demo” and “GitHub” links.",
+        "Filter chips/buttons animate when changing selection and project grid transitions smoothly between filtered states.",
+        "Hover tilt effect is subtle, performant, and disabled/adapted on touch devices."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Build the Experience / Education section as an animated timeline with scroll-triggered reveals and a premium cinematic flow.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "5. Experience / Education Section\n   - Timeline animation"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Timeline items animate into view as the user scrolls (e.g., alternating slide-in, line draw).",
+        "Layout remains readable and well-spaced on mobile and desktop.",
+        "Timeline animations do not cause content reflow jank."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Build the Contact section with an animated contact form, input focus glow effects, and social media icons with hover animations. Form submission should be handled in-app (e.g., client-side validation + a local success state) without requiring third-party email integrations.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "6. Contact Section\n   - Animated contact form\n   - Input focus glow effect\n   - Social media icons with hover animation"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form fields animate on mount/reveal and show a clear glow focus state on focus.",
+        "Basic client-side validation exists (required fields, email format).",
+        "Submitting the form shows a success message/state and clears or preserves fields in a predictable way.",
+        "Social icons animate on hover and are keyboard accessible."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Build the Footer as a minimal dark footer with subtle animated text, matching the futuristic premium tone.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "7. Footer\n   - Minimal dark footer with animated text"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Footer is visually minimal and consistent with the site theme.",
+        "Footer text or a small accent element has a subtle animation (not distracting)."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Add an animated gradient background (subtle, slow-moving) that complements the dark base and neon accents, and ensure it does not reduce content readability.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Animations:\n- Animated gradient background"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Animated gradient is visible yet subtle and does not overpower text/cards.",
+        "Gradient animation runs smoothly and does not cause significant performance issues."
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Add parallax scrolling effects for select hero/background elements to enhance cinematic storytelling, with conservative motion and accessibility-friendly behavior.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Extra Effects:\n- Parallax scrolling"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Parallax is applied to a small number of elements and enhances depth without distraction.",
+        "Motion remains smooth on mobile and desktop; effect is reduced/disabled if needed for performance or accessibility preferences."
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Ensure overall UX and quality: fully responsive layout (mobile/tablet/desktop), smooth scrolling, SEO-friendly basics (document title, meta description, semantic landmarks/heading structure), and a clean reusable component structure with clear comments.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Performance & UX:\n- Fully responsive (mobile, tablet, desktop)\n- Smooth scrolling\n- SEO friendly\n- Clean and reusable component structure\n\nOutput:\n- Full React component structure\n- Clean, commented code"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All sections render correctly at common breakpoints (mobile, tablet, desktop) without overflow issues.",
+        "In-page navigation uses smooth scrolling.",
+        "Page includes basic SEO metadata and semantic structure (e.g., one H1, meaningful section headings).",
+        "Components are organized logically (sections/components/hooks), with readable, commented code where animation logic is non-trivial."
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Add required static image assets (generated) to the project under frontend/public/assets/generated and use them in the UI (hero/about/profile, project thumbnails, favicon-style mark, subtle noise texture). Do not serve these images from the backend.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All images listed in imageRequirements.required exist in frontend/public/assets/generated and are referenced by the UI.",
+        "Images load efficiently and do not cause layout shifts (dimensions reserved or constrained).",
+        "No backend endpoints are used for image delivery."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files under frontend/src/components/ui (compose and reuse them as-is).",
+    "Do not modify the immutable hook/bootstrap paths listed by the system: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Do not add third-party authentication (only Internet Identity is supported) and do not add any external email/SMS services for the contact form.",
+    "Keep the backend as a single Motoko actor; avoid adding backend features unless strictly necessary for the portfolio UI."
+  ],
+  "nonGoals": [
+    "Building a CMS/admin panel for editing portfolio content.",
+    "Integrating third-party email delivery (SendGrid/Mailgun/SMTP) or real-time features (WebSockets/chat).",
+    "Adding external databases or non-supported backend technologies.",
+    "Implementing full multi-page routing unless needed for the requested page transitions (the site may remain a single scrolling page)."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Futuristic neon monogram logo mark, minimal geometric lines (logo-mark.dim_512x512.png)",
+      "Dark cinematic hero background with subtle abstract neon gradients (hero-bg.dim_1920x1080.png)",
+      "Subtle seamless monochrome noise/grain texture (noise-texture.dim_1024x1024.png)",
+      "Stylized profile portrait illustration on dark background with neon rim light (profile-portrait.dim_800x800.png)",
+      "Three project thumbnail illustrations with futuristic UI elements, dark theme, neon highlights (project-thumb-1.dim_1200x800.png)",
+      "Three project thumbnail illustrations with futuristic UI elements, dark theme, neon highlights (project-thumb-2.dim_1200x800.png)",
+      "Three project thumbnail illustrations with futuristic UI elements, dark theme, neon highlights (project-thumb-3.dim_1200x800.png)"
+    ],
+    "edits": []
+  }
+}

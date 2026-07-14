@@ -1,0 +1,342 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-implement-a-single-page-personal-portfolio-website-in-a-dark-theme-with-neon-accents-and-a-minimal-futuristic-look-dark-background-0f0f0f-0b0b0b-cyan-purple-electric-blue-accents-glassmorphism-cards-soft-glow-effects-and-smooth-hover-interactions",
+      "featureTitle": "Implement a single-page personal portfolio website in a dark theme with neon accents and a minimal futuristic look: dark background (#0f0f0f / #0b0b0b), cyan/purple/electric-blue accents, glassmorphism cards, soft glow effects, and smooth hover interactions.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/common/GlassCard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-set-up-tailwind-css-configuration-and-global-styles-to-support-the-dark-theme-neon-glow-tokens-glassmorphism-utilities-custom-dark-themed-scrollbar-and-a-subtle-noise-grain-overlay-texture",
+      "featureTitle": "Set up Tailwind CSS configuration and global styles to support the dark theme, neon/glow tokens, glassmorphism utilities, custom dark-themed scrollbar, and a subtle noise/grain overlay texture.",
+      "files": [
+        "frontend/src/components/effects/NoiseOverlay.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-global-animation-system-using-framer-motion-including-smooth-page-section-transitions-reusable-motion-variants-scroll-based-reveal-animations-fade-slide-scale-and-a-page-loader-animation-shown-on-initial-load",
+      "featureTitle": "Implement a global animation system using Framer Motion, including: smooth page/section transitions, reusable motion variants, scroll-based reveal animations (fade/slide/scale), and a page loader animation shown on initial load.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/motion/PageLoader.tsx",
+        "frontend/src/components/motion/Reveal.tsx",
+        "frontend/src/motion/variants.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-responsive-navbar-that-supports-smooth-scrolling-to-sections-and-hides-shows-based-on-scroll-direction-hide-on-scroll-down-show-on-scroll-up",
+      "featureTitle": "Create a responsive navbar that supports smooth scrolling to sections and hides/shows based on scroll direction (hide on scroll down, show on scroll up).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/nav/Navbar.tsx",
+        "frontend/src/hooks/useScrollDirection.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-hero-section-with-large-animated-name-text-role-text-with-typing-animation-and-two-prominent-call-to-action-buttons-labeled-hire-me-and-view-projects-including-cinematic-on-load-text-animation",
+      "featureTitle": "Build the Hero section with: large animated name text, role text with typing animation, and two prominent call-to-action buttons labeled “Hire Me” and “View Projects”, including cinematic on-load text animation.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useTypingText.ts",
+        "frontend/src/sections/HeroSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-magnetic-button-interactions-for-primary-ctas-and-key-interactive-elements-subtle-attraction-to-cursor-ensuring-accessibility-and-mobile-safe-behavior-disabled-or-adapted-for-touch",
+      "featureTitle": "Implement magnetic button interactions for primary CTAs and key interactive elements (subtle attraction to cursor), ensuring accessibility and mobile-safe behavior (disabled or adapted for touch).",
+      "files": [
+        "frontend/src/components/interactive/Magnetic.tsx",
+        "frontend/src/hooks/useReducedMotionPreference.ts",
+        "frontend/src/sections/HeroSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-cursor-follower-animation-that-complements-the-neon-glow-theme-with-appropriate-fallbacks-on-touch-devices-and-without-degrading-performance",
+      "featureTitle": "Add a cursor follower animation that complements the neon/glow theme, with appropriate fallbacks on touch devices and without degrading performance.",
+      "files": [
+        "frontend/src/components/effects/CursorFollower.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-about-section-with-an-animated-profile-image-scroll-triggered-text-reveal-and-a-set-of-tech-stack-icons-with-hover-animations-and-glow-effects",
+      "featureTitle": "Build the About section with an animated profile image, scroll-triggered text reveal, and a set of tech stack icons with hover animations and glow effects.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/sections/AboutSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-skills-section-featuring-animated-progress-indicators-progress-bars-and-or-circular-loaders-and-skill-icons-with-glow-hover-effects",
+      "featureTitle": "Build the Skills section featuring animated progress indicators (progress bars and/or circular loaders) and skill icons with glow hover effects.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/skills/SkillProgress.tsx",
+        "frontend/src/sections/SkillsSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-projects-section-with-fully-animated-project-cards-hover-tilt-interaction-hover-overlay-showing-live-demo-and-github-links-and-an-animated-filter-control-for-categories-react-js-html",
+      "featureTitle": "Build the Projects section with fully animated project cards, hover tilt interaction, hover overlay showing “Live Demo” and “GitHub” links, and an animated filter control for categories (React / JS / HTML).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/projects/ProjectCard.tsx",
+        "frontend/src/components/projects/ProjectFilter.tsx",
+        "frontend/src/data/projects.ts",
+        "frontend/src/sections/ProjectsSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-experience-education-section-as-an-animated-timeline-with-scroll-triggered-reveals-and-a-premium-cinematic-flow",
+      "featureTitle": "Build the Experience / Education section as an animated timeline with scroll-triggered reveals and a premium cinematic flow.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/timeline/Timeline.tsx",
+        "frontend/src/data/timeline.ts",
+        "frontend/src/sections/ExperienceSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-contact-section-with-an-animated-contact-form-input-focus-glow-effects-and-social-media-icons-with-hover-animations-form-submission-should-be-handled-in-app-e-g-client-side-validation-a-local-success-state-without-requiring-third-party-email-integrations",
+      "featureTitle": "Build the Contact section with an animated contact form, input focus glow effects, and social media icons with hover animations. Form submission should be handled in-app (e.g., client-side validation + a local success state) without requiring third-party email integrations.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useContactForm.ts",
+        "frontend/src/sections/ContactSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-footer-as-a-minimal-dark-footer-with-subtle-animated-text-matching-the-futuristic-premium-tone",
+      "featureTitle": "Build the Footer as a minimal dark footer with subtle animated text, matching the futuristic premium tone.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/sections/FooterSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-animated-gradient-background-subtle-slow-moving-that-complements-the-dark-base-and-neon-accents-and-ensure-it-does-not-reduce-content-readability",
+      "featureTitle": "Add an animated gradient background (subtle, slow-moving) that complements the dark base and neon accents, and ensure it does not reduce content readability.",
+      "files": [
+        "frontend/src/components/effects/AnimatedGradientBackground.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-parallax-scrolling-effects-for-select-hero-background-elements-to-enhance-cinematic-storytelling-with-conservative-motion-and-accessibility-friendly-behavior",
+      "featureTitle": "Add parallax scrolling effects for select hero/background elements to enhance cinematic storytelling, with conservative motion and accessibility-friendly behavior.",
+      "files": [
+        "frontend/src/hooks/useParallax.ts",
+        "frontend/src/sections/HeroSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-overall-ux-and-quality-fully-responsive-layout-mobile-tablet-desktop-smooth-scrolling-seo-friendly-basics-document-title-meta-description-semantic-landmarks-heading-structure-and-a-clean-reusable-component-structure-with-clear-comments",
+      "featureTitle": "Ensure overall UX and quality: fully responsive layout (mobile/tablet/desktop), smooth scrolling, SEO-friendly basics (document title, meta description, semantic landmarks/heading structure), and a clean reusable component structure with clear comments.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/App.tsx",
+        "frontend/src/components/common/Section.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-required-static-image-assets-generated-to-the-project-under-frontend-public-assets-generated-and-use-them-in-the-ui-hero-about-profile-project-thumbnails-favicon-style-mark-subtle-noise-texture-do-not-serve-these-images-from-the-backend",
+      "featureTitle": "Add required static image assets (generated) to the project under frontend/public/assets/generated and use them in the UI (hero/about/profile, project thumbnails, favicon-style mark, subtle noise texture). Do not serve these images from the backend.",
+      "files": [
+        "frontend/src/data/projects.ts",
+        "frontend/src/index.css",
+        "frontend/src/sections/AboutSection.tsx",
+        "frontend/src/sections/HeroSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

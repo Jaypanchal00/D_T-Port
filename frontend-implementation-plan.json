@@ -1,0 +1,489 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Dark-theme animated frontend developer portfolio (React + Tailwind + Framer Motion)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a single-page dark, neon-accented, glassmorphism-based futuristic portfolio UI with smooth hover interactions.",
+      "acceptanceCriteria": [
+        "App uses a consistent dark palette with the specified background values (or extremely close equivalents) across all sections.",
+        "Cards/containers use a glassmorphism style (blur + translucent fill + subtle border) that remains readable on dark backgrounds.",
+        "Interactive elements (buttons, links, cards) have smooth hover states and subtle glow accents without harming contrast/readability."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page layout shell (hero/about/skills/projects/experience/contact/footer) and apply the dark futuristic structure (glassmorphism surfaces, neon accents, hover interactions). Use shadcn-ui components (e.g., Button/Card-like primitives if available) to keep consistent UI building blocks. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "create",
+          "description": "Create a reusable layout wrapper that provides the dark base background, glass surface framing, consistent spacing, and shared effects layers (glow, overlays) used across all sections."
+        },
+        {
+          "path": "frontend/src/components/common/GlassCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable glassmorphism card/container wrapper (blur, translucent background, subtle border) to standardize the visual style for project cards, skill cards, timeline items, etc."
+        },
+        {
+          "path": "frontend/src/components/common/NeonLink.tsx",
+          "operation": "create",
+          "description": "Create a reusable neon-accent link/button wrapper class setup (hover glow, focus ring, underline/outline interactions) for consistent interactions across the site."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Configure Tailwind and global CSS for dark theme tokens, neon/glow utilities, glassmorphism helpers, custom scrollbar, and a subtle noise overlay.",
+      "acceptanceCriteria": [
+        "Tailwind is configured with reusable theme tokens/utilities for dark surfaces, neon accents, glow shadows, and glassmorphism styling.",
+        "A custom scrollbar style is applied globally and matches the dark theme.",
+        "A subtle grain/noise effect is visible (and not overpowering) across the site."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with neon accent colors (cyan/purple/electric-blue), glow boxShadow presets, and convenience tokens for dark surfaces and glass effects (while keeping existing shadcn-style CSS variable color mapping intact)."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add global styles: dark background base (close to #0f0f0f/#0b0b0b), smooth scrolling, custom dark scrollbar, and a subtle noise/grain overlay using the static asset frontend/public/assets/generated/noise-texture.dim_1024x1024.png (no backend usage)."
+        },
+        {
+          "path": "frontend/src/components/effects/NoiseOverlay.tsx",
+          "operation": "create",
+          "description": "Create a reusable overlay component that renders the noise/grain texture layer and can be toggled/opacity-tuned for readability using frontend/public/assets/generated/noise-texture.dim_1024x1024.png."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add a global Framer Motion animation system with centralized variants, scroll reveals, section transitions, and an initial loader animation.",
+      "acceptanceCriteria": [
+        "Motion variants are centralized and reused across sections (not duplicated ad hoc everywhere).",
+        "Scroll-based reveal animations trigger once per section/element and feel smooth on mobile and desktop.",
+        "A loader animation is displayed briefly on first load and then cleanly transitions to the hero section."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/motion/variants.ts",
+          "operation": "create",
+          "description": "Centralize Framer Motion variants (fade/slide/scale/stagger, section reveal presets, hover/tap micro-interactions) to ensure reuse across all sections."
+        },
+        {
+          "path": "frontend/src/components/motion/Reveal.tsx",
+          "operation": "create",
+          "description": "Create a reusable scroll-reveal wrapper based on Framer Motion that triggers once per element/section (IntersectionObserver-based) and supports direction/amount presets via centralized variants."
+        },
+        {
+          "path": "frontend/src/components/motion/PageLoader.tsx",
+          "operation": "create",
+          "description": "Create an initial loader animation (Framer Motion) shown on first app load, then animate out into the hero section."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the centralized motion variants, wrap sections with Reveal components, and include the PageLoader that transitions into the hero content."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement a responsive navbar with smooth in-page scrolling and hide/show behavior based on scroll direction, including mobile navigation.",
+      "acceptanceCriteria": [
+        "Navbar contains links to all required sections and scrolls smoothly to anchors/sections.",
+        "On downward scroll the navbar animates out; on upward scroll it animates back in.",
+        "Navbar is usable and visually correct on mobile/tablet/desktop (including a mobile-friendly navigation pattern)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useScrollDirection.ts",
+          "operation": "create",
+          "description": "Create a small hook to detect scroll direction (up/down) with thresholding to avoid jitter and to drive navbar hide/show animation."
+        },
+        {
+          "path": "frontend/src/components/nav/Navbar.tsx",
+          "operation": "create",
+          "description": "Create the responsive navbar with section links (Hero/About/Skills/Projects/Experience/Contact), smooth scrolling behavior, and Framer Motion hide/show animation based on scroll direction. Use shadcn-ui components where appropriate (e.g., Button, Sheet/Drawer for mobile menu if present). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Navbar into the top of the single-page layout and ensure all target sections have stable IDs for anchor scrolling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build the Hero section with cinematic on-load text animation, typing role animation, and animated CTAs for Hire Me and View Projects.",
+      "acceptanceCriteria": [
+        "Hero name text animates in on load (e.g., staggered reveal/slide/blur) with a premium feel.",
+        "Role text uses a visible typing effect (type + delete or type only) and loops or completes gracefully.",
+        "CTA buttons are animated (hover/tap) and navigate to Contact/Projects sections respectively (or open the relevant section)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useTypingText.ts",
+          "operation": "create",
+          "description": "Create a lightweight typing animation hook (type-only or type/delete) used by the hero role text with graceful looping/completion."
+        },
+        {
+          "path": "frontend/src/sections/HeroSection.tsx",
+          "operation": "create",
+          "description": "Implement the Hero section with large animated name text (cinematic on-load motion), typing role text, and two primary CTAs. Use the generated background image frontend/public/assets/generated/hero-bg.dim_1920x1080.png and include the logo mark frontend/public/assets/generated/logo-mark.dim_512x512.png in a subtle brand element."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire HeroSection into the page and ensure CTA actions scroll smoothly to the Projects and Contact sections."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add magnetic button interactions for primary CTAs and key interactive elements with accessible focus states and touch-safe behavior.",
+      "acceptanceCriteria": [
+        "On desktop, magnetic effect is noticeable but subtle and does not cause layout shift.",
+        "On touch devices, the effect does not interfere with tapping (either disabled or simplified).",
+        "Keyboard focus states remain clear and usable on all buttons/links."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useReducedMotionPreference.ts",
+          "operation": "create",
+          "description": "Create a utility hook to respect prefers-reduced-motion and to provide a single place to gate cursor/magnetic/parallax intensity."
+        },
+        {
+          "path": "frontend/src/components/interactive/Magnetic.tsx",
+          "operation": "create",
+          "description": "Create a wrapper component that applies a subtle magnetic attraction effect on pointer move for desktop, disabled/adapted for touch and reduced motion; ensure no layout shift and preserve keyboard focus visibility."
+        },
+        {
+          "path": "frontend/src/sections/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Apply the Magnetic wrapper to the primary CTAs (Hire Me / View Projects) and any other designated primary interactive elements."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement a neon-themed cursor follower with touch fallback and performance-friendly updates.",
+      "acceptanceCriteria": [
+        "A cursor follower element smoothly trails the pointer and visually matches the site theme.",
+        "Follower is hidden/disabled on touch devices.",
+        "No noticeable lag during normal pointer movement on typical hardware."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/effects/CursorFollower.tsx",
+          "operation": "create",
+          "description": "Implement a cursor follower component using performant motion updates (e.g., requestAnimationFrame / Framer Motion values) with neon/glow styling; disable on touch devices and honor reduced-motion preferences."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Mount CursorFollower at the layout level so it covers the whole page without interfering with interactions (pointer-events none) and can be globally toggled."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create the About section with animated profile image, scroll-triggered text reveal, and glowing tech stack icons with hover animations.",
+      "acceptanceCriteria": [
+        "Profile image has a tasteful animation (float/parallax/scale) and fits the glass/neon aesthetic.",
+        "About text reveals on scroll with a smooth, readable motion (not too fast).",
+        "Tech icons animate on hover (e.g., lift/rotate/glow) and remain legible on dark background."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/sections/AboutSection.tsx",
+          "operation": "create",
+          "description": "Implement About section using frontend/public/assets/generated/profile-portrait.dim_800x800.png with a tasteful animation and Reveal-based scroll text. Add a tech stack icon grid with hover glow/motion."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire AboutSection into the single-page section flow and ensure it has the correct section ID for navbar scrolling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create the Skills section with scroll-triggered animated progress indicators and glowing icon hover effects.",
+      "acceptanceCriteria": [
+        "Skills animate into view when scrolled into viewport.",
+        "Progress indicators animate from 0 to their target values smoothly.",
+        "Skill icons have consistent styling and glow hover effects without visual noise."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/skills/SkillProgress.tsx",
+          "operation": "create",
+          "description": "Create a reusable progress indicator component (bar and/or circular) that animates from 0 to target when it enters the viewport and can be reused for multiple skills."
+        },
+        {
+          "path": "frontend/src/sections/SkillsSection.tsx",
+          "operation": "create",
+          "description": "Implement Skills section using Reveal wrappers and SkillProgress components; add consistent neon glow hover effects for skill icons."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire SkillsSection into the single-page layout and ensure it is reachable via navbar smooth scrolling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create an animated Projects section with glass project cards, hover tilt, overlay links (Live Demo/GitHub), and animated category filtering (React/JS/HTML).",
+      "acceptanceCriteria": [
+        "Projects are displayed as cards with glassmorphism styling and animated entrance/reveal.",
+        "Hovering a card shows an overlay with clearly clickable “Live Demo” and “GitHub” links.",
+        "Filter chips/buttons animate when changing selection and project grid transitions smoothly between filtered states.",
+        "Hover tilt effect is subtle, performant, and disabled/adapted on touch devices."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/data/projects.ts",
+          "operation": "create",
+          "description": "Define the local project list (no CMS) with categories (React/JS/HTML), titles/descriptions, and thumbnail paths referencing frontend/public/assets/generated/project-thumb-1.dim_1200x800.png, frontend/public/assets/generated/project-thumb-2.dim_1200x800.png, frontend/public/assets/generated/project-thumb-3.dim_1200x800.png."
+        },
+        {
+          "path": "frontend/src/components/projects/ProjectCard.tsx",
+          "operation": "create",
+          "description": "Create an animated project card with glassmorphism styling, entrance animation, hover overlay for “Live Demo” and “GitHub”, and a subtle hover tilt effect disabled/adapted on touch devices."
+        },
+        {
+          "path": "frontend/src/components/projects/ProjectFilter.tsx",
+          "operation": "create",
+          "description": "Create animated filter controls for categories (React/JS/HTML). Use shadcn-ui components (e.g., Button/Badge/ToggleGroup equivalents if present) for consistent controls. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/sections/ProjectsSection.tsx",
+          "operation": "create",
+          "description": "Implement Projects section with animated grid transitions when filtering; wire ProjectFilter and ProjectCard together and ensure smooth layout transitions."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ProjectsSection into the page and ensure it has a stable section ID for the navbar and hero CTA scrolling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Create an Experience/Education animated timeline section with scroll-triggered reveals and cinematic flow.",
+      "acceptanceCriteria": [
+        "Timeline items animate into view as the user scrolls (e.g., alternating slide-in, line draw).",
+        "Layout remains readable and well-spaced on mobile and desktop.",
+        "Timeline animations do not cause content reflow jank."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/data/timeline.ts",
+          "operation": "create",
+          "description": "Define local Experience/Education timeline data (no admin/CMS) with dates, titles, and descriptions."
+        },
+        {
+          "path": "frontend/src/components/timeline/Timeline.tsx",
+          "operation": "create",
+          "description": "Create a timeline component with scroll-triggered reveal animations and a premium line/marker visual; keep layout stable to avoid reflow jank."
+        },
+        {
+          "path": "frontend/src/sections/ExperienceSection.tsx",
+          "operation": "create",
+          "description": "Implement the Experience/Education section using the Timeline component and Reveal wrappers for cinematic flow."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ExperienceSection into the single-page layout with a proper section ID and navbar link."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Implement the Contact section with animated form, glow focus inputs, local validation + success state, and animated social icons (no external email services).",
+      "acceptanceCriteria": [
+        "Form fields animate on mount/reveal and show a clear glow focus state on focus.",
+        "Basic client-side validation exists (required fields, email format).",
+        "Submitting the form shows a success message/state and clears or preserves fields in a predictable way.",
+        "Social icons animate on hover and are keyboard accessible."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useContactForm.ts",
+          "operation": "create",
+          "description": "Create a contact form hook that manages field state, basic validation (required + email format), submit handling, and a local success state (no backend or third-party integrations)."
+        },
+        {
+          "path": "frontend/src/sections/ContactSection.tsx",
+          "operation": "create",
+          "description": "Implement Contact section with animated form reveal, glow focus states, accessible labels/errors, and social icon links with hover animations. Use shadcn-ui form/input primitives if available to maintain consistent styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ContactSection into the page and ensure the Hero CTA “Hire Me” scrolls here."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Create a minimal dark футuristic footer with subtle animated text/accent.",
+      "acceptanceCriteria": [
+        "Footer is visually minimal and consistent with the site theme.",
+        "Footer text or a small accent element has a subtle animation (not distracting)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/sections/FooterSection.tsx",
+          "operation": "create",
+          "description": "Implement a minimal footer matching the dark neon aesthetic with a subtle Framer Motion animation on a small accent/text element."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire FooterSection as the final section of the single-page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Add a subtle slow-moving animated gradient background that complements the dark base without harming readability.",
+      "acceptanceCriteria": [
+        "Animated gradient is visible yet subtle and does not overpower text/cards.",
+        "Gradient animation runs smoothly and does not cause significant performance issues."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/effects/AnimatedGradientBackground.tsx",
+          "operation": "create",
+          "description": "Create an animated gradient background layer (slow movement) tuned for readability behind glass cards; ensure it is subtle and performant."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Mount the AnimatedGradientBackground behind content (and below noise overlay) and ensure it does not reduce contrast for text/cards."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Add conservative parallax scrolling to select hero/background elements with accessibility-friendly behavior.",
+      "acceptanceCriteria": [
+        "Parallax is applied to a small number of elements and enhances depth without distraction.",
+        "Motion remains smooth on mobile and desktop; effect is reduced/disabled if needed for performance or accessibility preferences."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useParallax.ts",
+          "operation": "create",
+          "description": "Create a small parallax hook that maps scroll position to transform values with clamping, reduced-motion gating, and touch/mobile safeguards."
+        },
+        {
+          "path": "frontend/src/sections/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Apply conservative parallax to a small number of hero/background elements (e.g., background art layer and a subtle accent) while respecting reduced-motion preference."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Ensure responsive UX, smooth scrolling, SEO-friendly basics, and a clean reusable component structure with clear comments for non-trivial animations.",
+      "acceptanceCriteria": [
+        "All sections render correctly at common breakpoints (mobile, tablet, desktop) without overflow issues.",
+        "In-page navigation uses smooth scrolling.",
+        "Page includes basic SEO metadata and semantic structure (e.g., one H1, meaningful section headings).",
+        "Components are organized logically (sections/components/hooks), with readable, commented code where animation logic is non-trivial."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Add basic SEO metadata (meta description) and wire the favicon-style mark using frontend/public/assets/generated/logo-mark.dim_512x512.png."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure semantic landmarks/heading structure (single H1 in hero, meaningful section headings), smooth scrolling behavior, and responsive layout across breakpoints; add targeted comments where animation logic is non-trivial."
+        },
+        {
+          "path": "frontend/src/components/common/Section.tsx",
+          "operation": "create",
+          "description": "Create a reusable Section wrapper to standardize spacing, max-width/container behavior, section IDs for navigation, and accessible headings."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Add required generated static images under frontend/public/assets/generated and reference them from the UI (hero/about/projects/favicon/noise).",
+      "acceptanceCriteria": [
+        "All images listed in imageRequirements.required exist in frontend/public/assets/generated and are referenced by the UI.",
+        "Images load efficiently and do not cause layout shifts (dimensions reserved or constrained).",
+        "No backend endpoints are used for image delivery."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/logo-mark.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated static asset file to be used as a logo mark and favicon-style browser icon."
+        },
+        {
+          "path": "frontend/public/assets/generated/hero-bg.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated static asset file to be used in the hero background visuals."
+        },
+        {
+          "path": "frontend/public/assets/generated/noise-texture.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset file to be used for the subtle grain/noise overlay."
+        },
+        {
+          "path": "frontend/public/assets/generated/profile-portrait.dim_800x800.png",
+          "operation": "create",
+          "description": "Add the generated static asset file to be used as the animated About profile image."
+        },
+        {
+          "path": "frontend/public/assets/generated/project-thumb-1.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add the generated static asset file to be used as a project thumbnail in the Projects section."
+        },
+        {
+          "path": "frontend/public/assets/generated/project-thumb-2.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add the generated static asset file to be used as a project thumbnail in the Projects section."
+        },
+        {
+          "path": "frontend/public/assets/generated/project-thumb-3.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add the generated static asset file to be used as a project thumbnail in the Projects section."
+        },
+        {
+          "path": "frontend/src/sections/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/hero-bg.dim_1920x1080.png and frontend/public/assets/generated/logo-mark.dim_512x512.png with dimensions constrained to prevent layout shift."
+        },
+        {
+          "path": "frontend/src/sections/AboutSection.tsx",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/profile-portrait.dim_800x800.png with constrained dimensions/aspect ratio to prevent layout shift."
+        },
+        {
+          "path": "frontend/src/data/projects.ts",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/project-thumb-1.dim_1200x800.png, frontend/public/assets/generated/project-thumb-2.dim_1200x800.png, frontend/public/assets/generated/project-thumb-3.dim_1200x800.png for project thumbnails."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/noise-texture.dim_1024x1024.png for the global noise overlay styling and ensure it remains subtle and does not impact readability."
+        }
+      ]
+    }
+  ]
+}

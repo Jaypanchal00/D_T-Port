@@ -1,0 +1,177 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T10:24:02.431Z",
+  "summary": "The diff adds a new single-page portfolio shell (App with section components), several visual/interaction effects (animated gradient background, noise overlay, cursor follower, magnetic wrapper), a CSS-based page loader, reveal-on-scroll helper, navbar with scroll-direction hide/show and smooth scrolling, and animated/interactive components for projects, skills, and a timeline. However, several BuildRequest requirements are not evidenced in the provided diff summary (notably Tailwind/global styling setup, Framer Motion-based centralized animation system, parallax, and SEO metadata).",
+  "missing_requirements": [
+    {
+      "id": "REQ-2",
+      "requirement": "Set up Tailwind CSS configuration and global styles to support the dark theme, neon/glow tokens, glassmorphism utilities, custom dark-themed scrollbar, and a subtle noise/grain overlay texture.",
+      "reason": "Noise overlay is implemented, and components use presumed Tailwind tokens (e.g., bg-dark, neon classes), but there is no diff evidence of Tailwind config/theme token definitions or any global custom scrollbar styling being added/modified (no tailwind.config or global CSS shown).",
+      "evidence": [
+        "frontend/src/components/effects/NoiseOverlay.tsx",
+        "frontend/src/components/common/GlassCard.tsx",
+        "frontend/src/components/motion/PageLoader.tsx"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "requirement": "Implement a global animation system using Framer Motion with centralized reusable variants, scroll-based reveal animations, and a page loader on initial load.",
+      "reason": "A loader and scroll reveals exist, but the implementations shown are CSS/IntersectionObserver-based and there is no evidence of Framer Motion usage or centralized motion variants in the diff summary.",
+      "evidence": [
+        "frontend/src/components/motion/PageLoader.tsx",
+        "frontend/src/components/motion/Reveal.tsx",
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "Hero section with large animated name text, role text with typing animation, and CTA buttons labeled “Hire Me” and “View Projects”, with cinematic on-load text animation.",
+      "reason": "App imports HeroSection, but the diff summary does not include the HeroSection implementation, so the required typing animation, CTA labels, and on-load text animation are not evidenced.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "About section with animated profile image, scroll-triggered text reveal, and tech stack icons with hover animations/glow.",
+      "reason": "App imports AboutSection, but the diff summary does not include AboutSection code, so the required animated profile image, text reveal, and tech icon behaviors are not evidenced.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "requirement": "Skills section with animated progress indicators and skill icons with glow hover effects.",
+      "reason": "An animated progress component exists, but the diff summary does not show the full SkillsSection or any skill icon rendering/hover glow behavior, so the complete requirement is not evidenced.",
+      "evidence": [
+        "frontend/src/components/skills/SkillProgress.tsx",
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "requirement": "Projects section with animated project cards, hover tilt, hover overlay with “Live Demo” and “GitHub” links, and animated filter control with smooth grid transitions.",
+      "reason": "Hover tilt, overlay buttons, and a filter control are implemented, but the overlay uses icon buttons only (no visible “Live Demo”/“GitHub” text labels), and there is no evidence of animated grid transitions when filtering (likely in ProjectsSection, which is not shown).",
+      "evidence": [
+        "frontend/src/components/projects/ProjectCard.tsx",
+        "frontend/src/components/projects/ProjectFilter.tsx",
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "Experience/Education section as an animated timeline with scroll-triggered reveals and cinematic flow.",
+      "reason": "A timeline component with IntersectionObserver-based reveal exists, but the diff summary does not show the ExperienceSection composition/layout details, so full section behavior and responsiveness are not fully evidenced.",
+      "evidence": [
+        "frontend/src/components/timeline/Timeline.tsx",
+        "frontend/src/App.tsx",
+        "frontend/src/data/timeline.ts"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "requirement": "Contact section with animated contact form, focus glow effects, social icons with hover animations, and in-app validation + success state.",
+      "reason": "Client-side validation and a simulated success state exist in a hook, but the diff summary does not show ContactSection UI (focus glow styles, mount/reveal animations, social icons/accessibility).",
+      "evidence": [
+        "frontend/src/hooks/useContactForm.ts",
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "requirement": "Footer as minimal dark footer with subtle animated text.",
+      "reason": "App imports FooterSection but the diff summary does not include FooterSection code, so the footer styling and subtle animation are not evidenced.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "requirement": "Add parallax scrolling effects for select hero/background elements with accessibility-friendly behavior.",
+      "reason": "No parallax implementation is evidenced in the shown files (no scroll-linked transforms/parallax utilities/hooks shown).",
+      "evidence": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/effects/AnimatedGradientBackground.tsx"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "requirement": "SEO-friendly basics (document title, meta description, semantic landmarks/heading structure) and overall UX quality (smooth scrolling, responsiveness, reusable structure/comments).",
+      "reason": "Smooth scrolling is implemented in Navbar, but there is no evidence of document title/meta description updates (typically in main.tsx/index.html) and section semantic/heading structure cannot be verified because section implementations are not included in the diff summary.",
+      "evidence": [
+        "frontend/src/components/nav/Navbar.tsx",
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "requirement": "Add all required static image assets under frontend/public/assets/generated and use them in the UI.",
+      "reason": "UI references some required assets (noise texture, logo mark, project thumbnails), but the diff summary does not show the actual image files being added (they may be in the omitted added files), so existence of all required images is not evidenced.",
+      "evidence": [
+        "frontend/src/components/effects/NoiseOverlay.tsx",
+        "frontend/src/components/motion/PageLoader.tsx",
+        "frontend/src/data/projects.ts"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Backend Motoko actor created as an empty actor without any portfolio-related functionality.",
+      "reason": "The BuildRequest explicitly says to keep backend features minimal and only add if strictly necessary for the portfolio UI; the diff adds backend/main.mo but no UI requirement is shown that depends on backend logic.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Actor/Internet Identity integration hook logic added/extended via useActor (react-query based actor creation and query invalidation).",
+      "reason": "The BuildRequest focuses on portfolio UI/animations; it constrains authentication to Internet Identity but does not request implementing or expanding actor/query management for the portfolio UI.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/common/GlassCard.tsx",
+    "frontend/src/components/common/Section.tsx",
+    "frontend/src/components/effects/AnimatedGradientBackground.tsx",
+    "frontend/src/components/effects/CursorFollower.tsx",
+    "frontend/src/components/effects/NoiseOverlay.tsx",
+    "frontend/src/components/interactive/Magnetic.tsx",
+    "frontend/src/components/motion/PageLoader.tsx",
+    "frontend/src/components/motion/Reveal.tsx",
+    "frontend/src/components/nav/Navbar.tsx",
+    "frontend/src/components/projects/ProjectCard.tsx",
+    "frontend/src/components/projects/ProjectFilter.tsx",
+    "frontend/src/components/skills/SkillProgress.tsx",
+    "frontend/src/components/timeline/Timeline.tsx",
+    "frontend/src/data/projects.ts",
+    "frontend/src/data/timeline.ts",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useContactForm.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useParallax.ts",
+    "frontend/src/hooks/useReducedMotionPreference.ts",
+    "frontend/src/hooks/useScrollDirection.ts",
+    "frontend/src/hooks/useTypingText.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/motion/variants.ts",
+    "frontend/src/sections/AboutSection.tsx",
+    "frontend/src/sections/ContactSection.tsx",
+    "frontend/src/sections/ExperienceSection.tsx",
+    "frontend/src/sections/FooterSection.tsx",
+    "frontend/src/sections/HeroSection.tsx",
+    "frontend/src/sections/ProjectsSection.tsx",
+    "frontend/src/sections/SkillsSection.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

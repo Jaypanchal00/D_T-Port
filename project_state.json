@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Modern dark-theme, fully animated personal portfolio website for a Frontend Web Developer using React + Vite, Tailwind CSS, and Framer Motion (optionally Three.js/GSAP), with premium futuristic UI and multiple animated sections.",
+  "architectural_notes": [
+    "Tech stack: React + Vite, Tailwind CSS (dark theme), Framer Motion; optional Three.js/GSAP for advanced effects.",
+    "Design system: dark background (#0f0f0f/#0b0b0b), neon accents (cyan/purple/electric blue), glassmorphism, glow/hover effects, minimal futuristic UI.",
+    "Architecture goal: clean, reusable component structure with SEO-friendly setup and fully responsive layout."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Futuristic neon monogram logo mark, minimal geometric lines (logo-mark.dim_512x512.png)\n- Dark cinematic hero background with subtle abstract neon gradients (hero-bg.dim_1920x1080.png)\n- Subtle seamless monochrome noise/grain texture (noise-texture.dim_1024x1024.png)\n- Stylized profile portrait illustration on dark background with neon rim light (profile-portrait.dim_800x800.png)\n- Three project thumbnail illustrations with futuristic UI elements, dark theme, neon highlights (project-thumb-1.dim_1200x800.png)\n- Three project thumbnail illustrations with futuristic UI elements, dark theme, neon highlights (project-thumb-2.dim_1200x800.png)\n- Three project thumbnail illustrations with futuristic UI elements, dark theme, neon highlights (project-thumb-3.dim_1200x800.png)",
+  "existing_features": [
+    {
+      "id": "feature-implement-a-single-page-personal-portfolio-website-in-a-dark-theme-with-neon-accents-and-a-minimal-futuristic-look-dark-background-0f0f0f-0b0b0b-cyan-purple-electric-blue-accents-glassmorphism-cards-soft-glow-effects-and-smooth-hover-interactions",
+      "title": "Implement a single-page personal portfolio website in a dark theme with neon accents and a minimal futuristic look: dark background (#0f0f0f / #0b0b0b), cyan/purple/electric-blue accents, glassmorphism cards, soft glow effects, and smooth hover interactions.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-set-up-tailwind-css-configuration-and-global-styles-to-support-the-dark-theme-neon-glow-tokens-glassmorphism-utilities-custom-dark-themed-scrollbar-and-a-subtle-noise-grain-overlay-texture",
+      "title": "Set up Tailwind CSS configuration and global styles to support the dark theme, neon/glow tokens, glassmorphism utilities, custom dark-themed scrollbar, and a subtle noise/grain overlay texture.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-global-animation-system-using-framer-motion-including-smooth-page-section-transitions-reusable-motion-variants-scroll-based-reveal-animations-fade-slide-scale-and-a-page-loader-animation-shown-on-initial-load",
+      "title": "Implement a global animation system using Framer Motion, including: smooth page/section transitions, reusable motion variants, scroll-based reveal animations (fade/slide/scale), and a page loader animation shown on initial load.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-responsive-navbar-that-supports-smooth-scrolling-to-sections-and-hides-shows-based-on-scroll-direction-hide-on-scroll-down-show-on-scroll-up",
+      "title": "Create a responsive navbar that supports smooth scrolling to sections and hides/shows based on scroll direction (hide on scroll down, show on scroll up).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-hero-section-with-large-animated-name-text-role-text-with-typing-animation-and-two-prominent-call-to-action-buttons-labeled-hire-me-and-view-projects-including-cinematic-on-load-text-animation",
+      "title": "Build the Hero section with: large animated name text, role text with typing animation, and two prominent call-to-action buttons labeled “Hire Me” and “View Projects”, including cinematic on-load text animation.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-magnetic-button-interactions-for-primary-ctas-and-key-interactive-elements-subtle-attraction-to-cursor-ensuring-accessibility-and-mobile-safe-behavior-disabled-or-adapted-for-touch",
+      "title": "Implement magnetic button interactions for primary CTAs and key interactive elements (subtle attraction to cursor), ensuring accessibility and mobile-safe behavior (disabled or adapted for touch).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-cursor-follower-animation-that-complements-the-neon-glow-theme-with-appropriate-fallbacks-on-touch-devices-and-without-degrading-performance",
+      "title": "Add a cursor follower animation that complements the neon/glow theme, with appropriate fallbacks on touch devices and without degrading performance.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-about-section-with-an-animated-profile-image-scroll-triggered-text-reveal-and-a-set-of-tech-stack-icons-with-hover-animations-and-glow-effects",
+      "title": "Build the About section with an animated profile image, scroll-triggered text reveal, and a set of tech stack icons with hover animations and glow effects.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-skills-section-featuring-animated-progress-indicators-progress-bars-and-or-circular-loaders-and-skill-icons-with-glow-hover-effects",
+      "title": "Build the Skills section featuring animated progress indicators (progress bars and/or circular loaders) and skill icons with glow hover effects.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-projects-section-with-fully-animated-project-cards-hover-tilt-interaction-hover-overlay-showing-live-demo-and-github-links-and-an-animated-filter-control-for-categories-react-js-html",
+      "title": "Build the Projects section with fully animated project cards, hover tilt interaction, hover overlay showing “Live Demo” and “GitHub” links, and an animated filter control for categories (React / JS / HTML).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-experience-education-section-as-an-animated-timeline-with-scroll-triggered-reveals-and-a-premium-cinematic-flow",
+      "title": "Build the Experience / Education section as an animated timeline with scroll-triggered reveals and a premium cinematic flow.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-contact-section-with-an-animated-contact-form-input-focus-glow-effects-and-social-media-icons-with-hover-animations-form-submission-should-be-handled-in-app-e-g-client-side-validation-a-local-success-state-without-requiring-third-party-email-integrations",
+      "title": "Build the Contact section with an animated contact form, input focus glow effects, and social media icons with hover animations. Form submission should be handled in-app (e.g., client-side validation + a local success state) without requiring third-party email integrations.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-footer-as-a-minimal-dark-footer-with-subtle-animated-text-matching-the-futuristic-premium-tone",
+      "title": "Build the Footer as a minimal dark footer with subtle animated text, matching the futuristic premium tone.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-animated-gradient-background-subtle-slow-moving-that-complements-the-dark-base-and-neon-accents-and-ensure-it-does-not-reduce-content-readability",
+      "title": "Add an animated gradient background (subtle, slow-moving) that complements the dark base and neon accents, and ensure it does not reduce content readability.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-parallax-scrolling-effects-for-select-hero-background-elements-to-enhance-cinematic-storytelling-with-conservative-motion-and-accessibility-friendly-behavior",
+      "title": "Add parallax scrolling effects for select hero/background elements to enhance cinematic storytelling, with conservative motion and accessibility-friendly behavior.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-overall-ux-and-quality-fully-responsive-layout-mobile-tablet-desktop-smooth-scrolling-seo-friendly-basics-document-title-meta-description-semantic-landmarks-heading-structure-and-a-clean-reusable-component-structure-with-clear-comments",
+      "title": "Ensure overall UX and quality: fully responsive layout (mobile/tablet/desktop), smooth scrolling, SEO-friendly basics (document title, meta description, semantic landmarks/heading structure), and a clean reusable component structure with clear comments.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-required-static-image-assets-generated-to-the-project-under-frontend-public-assets-generated-and-use-them-in-the-ui-hero-about-profile-project-thumbnails-favicon-style-mark-subtle-noise-texture-do-not-serve-these-images-from-the-backend",
+      "title": "Add required static image assets (generated) to the project under frontend/public/assets/generated and use them in the UI (hero/about/profile, project thumbnails, favicon-style mark, subtle noise texture). Do not serve these images from the backend.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Set up React + Vite project with Tailwind CSS configured for dark theme and neon/glassmorphism styling tokens",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement global animation system with Framer Motion (page transitions, scroll-based reveals, and reusable motion variants)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Build Hero section with animated name text, typing role text, and CTA buttons (Hire Me / View Projects)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Build About section with animated profile image, scroll text reveal, and tech stack icons with hover animations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Build Skills section with animated progress bars/circular loaders and glow-hover skill icons",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Build Projects section with animated cards, hover overlay links (Live Demo/GitHub), and animated filters (React/JS/HTML)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Build Experience/Education section with animated timeline",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Build Contact section with animated form, input focus glow, and social icons hover animations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Build Footer with minimal dark styling and subtle animated text",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add premium UX polish: responsive design, smooth scrolling, SEO basics, reusable component structure, navbar hide/show on scroll, cursor follower, magnetic buttons, hover-tilt cards, animated gradient background, custom scrollbar, loader, parallax, subtle noise/grain texture",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Dark-theme animated frontend developer portfolio (React + Tailwind + Framer Motion)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
