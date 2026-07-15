@@ -1,4 +1,4 @@
-import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import Section from '../components/common/Section';
 import Reveal from '../components/motion/Reveal';
@@ -10,9 +10,9 @@ import { Label } from '@/components/ui/label';
 import useContactForm from '../hooks/useContactForm';
 
 const socialLinks = [
-  { icon: SiGithub, href: 'https://github.com', label: 'GitHub', color: '#fff' },
-  { icon: SiLinkedin, href: 'https://linkedin.com', label: 'LinkedIn', color: '#0A66C2' },
-  { icon: SiX, href: 'https://x.com', label: 'X (Twitter)', color: '#fff' },
+  { icon: FaGithub, href: 'https://github.com', label: 'GitHub', color: '#fff' },
+  { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn', color: '#0A66C2' },
+  { icon: FaXTwitter, href: 'https://x.com', label: 'X (Twitter)', color: '#fff' },
 ];
 
 const contactInfo = [
